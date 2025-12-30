@@ -1,5 +1,5 @@
-from aiogram.utils.keyboard import InlineKeyboardBuilder
 from aiogram.filters.callback_data import CallbackData
+from aiogram.utils.keyboard import InlineKeyboardBuilder
 
 class StartMenuCb(CallbackData, prefix="start_menu"):
     action: str  # profile | buy | support | howto
@@ -8,26 +8,28 @@ def main_menu_keyboard():
     kb = InlineKeyboardBuilder()
 
     kb.button(
-        text="👤 Профиль", 
+        text="👤 Профиль",
         callback_data=StartMenuCb(
             action="profile"
         ).pack()
     )
 
     kb.button(
-        text="🛒 Купить", 
+        text="🛒 Купить",
         callback_data=StartMenuCb(
             action="buy"
         ).pack()
     )
-    
+
     kb.button(
         text="🧑‍💻 Техподдержка",
-        url="https://t.me/YourSupportUsername"
+        callback_data=StartMenuCb(
+            action="support"
+        ).pack()
     )
 
     kb.button(
-        text="📖 Как пользоваться", 
+        text="📖 Как пользоваться",
         callback_data=StartMenuCb(action="howto").pack()
     )
 

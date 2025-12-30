@@ -7,7 +7,7 @@ import asyncio
 import logging
 import signal
 import sys
-from contextlib import asynccontextmanager
+from contextlib import asynccontextmanager, suppress
 from typing import Optional
 
 from aiogram import Bot, Dispatcher
@@ -101,7 +101,7 @@ class BotApplication:
 
                 await stop_event.wait()
                 polling_task.cancel()
-                with contextlib.suppress(asyncio.CancelledError):
+                with suppress(asyncio.CancelledError):
                     await polling_task
             else:
                 # Windows: просто запускаем polling, остановка через Ctrl+C
