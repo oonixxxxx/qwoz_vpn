@@ -1,0 +1,425 @@
+2025-12-30 23:45:59,524 - __main__ - INFO - main.py:47 - Logging system initialized
+2025-12-30 23:45:59,525 - __main__ - INFO - main.py:153 - Initializing Telegram bot...
+2025-12-30 23:45:59,525 - __main__ - INFO - main.py:139 - Starting bot lifespan
+2025-12-30 23:45:59,526 - __main__ - INFO - main.py:143 - Ending bot lifespan
+2025-12-30 23:45:59,527 - __main__ - CRITICAL - main.py:167 - Fatal error: DefaultBotProperties.__init__() got an unexpected keyword argument 'disable_web_page_preview'
+Traceback (most recent call last):
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\app\bot\main.py", line 163, in <module>
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\app\bot\main.py", line 157, in main
+    await app.setup()
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\app\bot\main.py", line 88, in setup
+    await self.setup_bot()
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\app\bot\main.py", line 59, in setup_bot
+    default = DefaultBotProperties(
+        parse_mode=ParseMode.HTML,
+        disable_web_page_preview=True,
+        protect_content=False,
+    )
+TypeError: DefaultBotProperties.__init__() got an unexpected keyword argument 'disable_web_page_preview'
+2025-12-30 23:47:26,715 - __main__ - INFO - main.py:47 - Logging system initialized
+2025-12-30 23:47:26,716 - __main__ - INFO - main.py:152 - Initializing Telegram bot...
+2025-12-30 23:47:26,716 - __main__ - INFO - main.py:138 - Starting bot lifespan
+2025-12-30 23:47:27,075 - __main__ - INFO - main.py:89 - Application setup completed
+2025-12-30 23:47:27,075 - __main__ - INFO - main.py:142 - Ending bot lifespan
+2025-12-30 23:47:27,077 - __main__ - CRITICAL - main.py:166 - Fatal error: 
+Traceback (most recent call last):
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\app\bot\main.py", line 162, in <module>
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\app\bot\main.py", line 157, in main
+    await app.run()
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\app\bot\main.py", line 99, in run
+    loop.add_signal_handler(sig, stop_event.set)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 596, in add_signal_handler
+    raise NotImplementedError
+NotImplementedError
+2025-12-30 23:47:42,191 - __main__ - INFO - main.py:47 - Logging system initialized
+2025-12-30 23:47:42,192 - __main__ - INFO - main.py:152 - Initializing Telegram bot...
+2025-12-30 23:47:42,192 - __main__ - INFO - main.py:138 - Starting bot lifespan
+2025-12-30 23:47:42,913 - __main__ - INFO - main.py:89 - Application setup completed
+2025-12-30 23:47:42,914 - __main__ - INFO - main.py:142 - Ending bot lifespan
+2025-12-30 23:47:42,915 - __main__ - CRITICAL - main.py:166 - Fatal error: 
+Traceback (most recent call last):
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\app\bot\main.py", line 162, in <module>
+    asyncio.run(main())
+    ~~~~~~~~~~~^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           ~~~~~~~~~~^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\base_events.py", line 725, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\app\bot\main.py", line 157, in main
+    await app.run()
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\app\bot\main.py", line 99, in run
+    loop.add_signal_handler(sig, stop_event.set)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.2544.0_x64__qbz5n2kfra8p0\Lib\asyncio\events.py", line 596, in add_signal_handler
+    raise NotImplementedError
+NotImplementedError
+2025-12-30 23:48:38,618 - __main__ - INFO - main.py:44 - Logging system initialized
+2025-12-30 23:48:38,618 - __main__ - INFO - main.py:155 - Initializing Telegram bot...
+2025-12-30 23:48:38,619 - __main__ - INFO - main.py:141 - Starting bot lifespan
+2025-12-30 23:48:38,928 - __main__ - INFO - main.py:75 - Application setup completed
+2025-12-30 23:48:38,928 - __main__ - INFO - main.py:81 - Starting bot in polling mode...
+2025-12-30 23:51:13,026 - __main__ - WARNING - main.py:118 - Polling task was cancelled
+2025-12-30 23:51:13,027 - __main__ - INFO - main.py:126 - Shutting down application...
+2025-12-30 23:51:13,028 - aiogram.dispatcher - ERROR - dispatcher.py:225 - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-12-30 23:51:13,028 - aiogram.dispatcher - WARNING - dispatcher.py:227 - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8245968339)
+2025-12-30 23:51:13,293 - __main__ - INFO - main.py:136 - Application shutdown completed
+2025-12-30 23:51:13,294 - __main__ - INFO - main.py:145 - Ending bot lifespan
+2025-12-30 23:51:27,001 - __main__ - INFO - main.py:44 - Logging system initialized
+2025-12-30 23:51:27,002 - __main__ - INFO - main.py:155 - Initializing Telegram bot...
+2025-12-30 23:51:27,002 - __main__ - INFO - main.py:141 - Starting bot lifespan
+2025-12-30 23:51:27,519 - __main__ - INFO - main.py:75 - Application setup completed
+2025-12-30 23:51:27,520 - __main__ - INFO - main.py:81 - Starting bot in polling mode...
+2025-12-30 23:55:02,372 - __main__ - WARNING - main.py:118 - Polling task was cancelled
+2025-12-30 23:55:02,372 - __main__ - INFO - main.py:126 - Shutting down application...
+2025-12-30 23:55:02,375 - aiogram.dispatcher - ERROR - dispatcher.py:225 - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-12-30 23:55:02,375 - aiogram.dispatcher - WARNING - dispatcher.py:227 - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8245968339)
+2025-12-30 23:55:02,631 - __main__ - INFO - main.py:136 - Application shutdown completed
+2025-12-30 23:55:02,632 - __main__ - INFO - main.py:145 - Ending bot lifespan
+2025-12-30 23:55:38,061 - __main__ - INFO - main.py:44 - Logging system initialized
+2025-12-30 23:55:38,062 - __main__ - INFO - main.py:155 - Initializing Telegram bot...
+2025-12-30 23:55:38,063 - __main__ - INFO - main.py:141 - Starting bot lifespan
+2025-12-30 23:55:38,693 - __main__ - INFO - main.py:75 - Application setup completed
+2025-12-30 23:55:38,693 - __main__ - INFO - main.py:81 - Starting bot in polling mode...
+2025-12-31 00:05:58,140 - __main__ - WARNING - main.py:118 - Polling task was cancelled
+2025-12-31 00:05:58,142 - __main__ - INFO - main.py:126 - Shutting down application...
+2025-12-31 00:05:58,144 - aiogram.dispatcher - ERROR - dispatcher.py:225 - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-12-31 00:05:58,145 - aiogram.dispatcher - WARNING - dispatcher.py:227 - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8245968339)
+2025-12-31 00:05:58,400 - __main__ - INFO - main.py:136 - Application shutdown completed
+2025-12-31 00:05:58,401 - __main__ - INFO - main.py:145 - Ending bot lifespan
+2025-12-31 00:08:00,179 - __main__ - INFO - main.py:44 - Logging system initialized
+2025-12-31 00:08:00,179 - __main__ - INFO - main.py:155 - Initializing Telegram bot...
+2025-12-31 00:08:00,179 - __main__ - INFO - main.py:141 - Starting bot lifespan
+2025-12-31 00:08:00,497 - __main__ - INFO - main.py:75 - Application setup completed
+2025-12-31 00:08:00,497 - __main__ - INFO - main.py:81 - Starting bot in polling mode...
+2025-12-31 00:08:28,657 - aiogram.event - ERROR - dispatcher.py:325 - Cause exception while process update id=260565579 by bot id=8245968339
+TelegramBadRequest: Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+Traceback (most recent call last):
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 189, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 189, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\app\bot\handler\user_handler.py", line 27, in on_buy
+    await callback.message.edit_text(
+    ...<2 lines>...
+    )
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\client\bot.py", line 485, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 177, in make_request
+    response = self.check_response(
+        bot=bot,
+    ...<2 lines>...
+        content=raw_result,
+    )
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\client\session\base.py", line 121, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+2025-12-31 00:08:30,205 - aiogram.event - ERROR - dispatcher.py:325 - Cause exception while process update id=260565580 by bot id=8245968339
+TelegramBadRequest: Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+Traceback (most recent call last):
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 189, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 189, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\app\bot\handler\user_handler.py", line 27, in on_buy
+    await callback.message.edit_text(
+    ...<2 lines>...
+    )
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\client\bot.py", line 485, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 177, in make_request
+    response = self.check_response(
+        bot=bot,
+    ...<2 lines>...
+        content=raw_result,
+    )
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\client\session\base.py", line 121, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+2025-12-31 00:09:40,882 - __main__ - WARNING - main.py:118 - Polling task was cancelled
+2025-12-31 00:09:40,883 - __main__ - INFO - main.py:126 - Shutting down application...
+2025-12-31 00:09:40,884 - aiogram.dispatcher - ERROR - dispatcher.py:225 - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-12-31 00:09:40,884 - aiogram.dispatcher - WARNING - dispatcher.py:227 - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8245968339)
+2025-12-31 00:09:41,137 - __main__ - INFO - main.py:136 - Application shutdown completed
+2025-12-31 00:09:41,138 - __main__ - INFO - main.py:145 - Ending bot lifespan
+2025-12-31 00:09:49,751 - __main__ - INFO - main.py:44 - Logging system initialized
+2025-12-31 00:09:49,751 - __main__ - INFO - main.py:155 - Initializing Telegram bot...
+2025-12-31 00:09:49,751 - __main__ - INFO - main.py:141 - Starting bot lifespan
+2025-12-31 00:09:50,149 - __main__ - INFO - main.py:75 - Application setup completed
+2025-12-31 00:09:50,149 - __main__ - INFO - main.py:81 - Starting bot in polling mode...
+2025-12-31 00:12:30,550 - __main__ - WARNING - main.py:118 - Polling task was cancelled
+2025-12-31 00:12:30,551 - __main__ - INFO - main.py:126 - Shutting down application...
+2025-12-31 00:12:30,552 - aiogram.dispatcher - ERROR - dispatcher.py:225 - Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2025-12-31 00:12:30,553 - aiogram.dispatcher - WARNING - dispatcher.py:227 - Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8245968339)
+2025-12-31 00:12:30,805 - __main__ - INFO - main.py:136 - Application shutdown completed
+2025-12-31 00:12:30,808 - __main__ - INFO - main.py:145 - Ending bot lifespan
+2025-12-31 00:12:37,112 - __main__ - INFO - main.py:44 - Logging system initialized
+2025-12-31 00:12:37,113 - __main__ - INFO - main.py:155 - Initializing Telegram bot...
+2025-12-31 00:12:37,113 - __main__ - INFO - main.py:141 - Starting bot lifespan
+2025-12-31 00:12:37,739 - __main__ - INFO - main.py:75 - Application setup completed
+2025-12-31 00:12:37,740 - __main__ - INFO - main.py:81 - Starting bot in polling mode...
+2025-12-31 00:14:02,662 - aiogram.event - ERROR - dispatcher.py:325 - Cause exception while process update id=260565592 by bot id=8245968339
+TelegramBadRequest: Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+Traceback (most recent call last):
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 189, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 189, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\app\bot\handler\payments_handler.py", line 44, in pay_card
+    await callback.message.edit_text(
+    ...<2 lines>...
+    )
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\methods\base.py", line 84, in emit
+    return await bot(self)
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\client\bot.py", line 485, in __call__
+    return await self.session(self, method, timeout=request_timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\client\session\base.py", line 259, in __call__
+    return cast(TelegramType, await middleware(bot, method))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\client\session\aiohttp.py", line 177, in make_request
+    response = self.check_response(
+        bot=bot,
+    ...<2 lines>...
+        content=raw_result,
+    )
+  File "C:\Users\kisel\OneDrive\Документы\nix_vpn\venv\Lib\site-packages\aiogram\client\session\base.py", line 121, in check_response
+    raise TelegramBadRequest(method=method, message=description)
+aiogram.exceptions.TelegramBadRequest: Telegram server says - Bad Request: message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
