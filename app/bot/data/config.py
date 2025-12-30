@@ -1,1 +1,4 @@
-BOT_TOKEN = ''
+import os
+
+BOT_TOKEN = os.getenv("BOT_TOKEN", "")
+SUPPORT_USERNAME = os.getenv("SUPPORT_USERNAME", "YourSupportUsername")
