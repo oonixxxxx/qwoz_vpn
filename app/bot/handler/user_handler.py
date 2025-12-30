@@ -2,37 +2,47 @@ from aiogram import F, Router
 from aiogram.filters import Command, CommandStart
 from aiogram.types import CallbackQuery, Message
 
-import httpx
-
 from app.bot.data.config import ADMIN_TELEGRAM_IDS, SUPPORT_USERNAME
 from app.bot.keyboard.main_menu import main_menu_keyboard, StartMenuCb
-from app.bot.services.instructions import format_instruction
-from app.bot.services.qr import build_qr_image
-from app.bot.services.xray_api import XrayAPIClient
 
+# Роутер для пользовательских сценариев
 user_router = Router()
-api_client = XrayAPIClient()
 
 
+# ---------------------------------------------------------------------------
+# /start
+# ---------------------------------------------------------------------------
 @user_router.message(CommandStart())
 async def send_welcome(message: Message):
+    """
+    Команда /start.
+    Показывает приветствие и главное меню.
+    """
     await message.answer(
         "Welcome! I'm here to help you. Use the menu below to navigate.",
         reply_markup=main_menu_keyboard()
     )
 
 
+# ---------------------------------------------------------------------------
+# Профиль
+# ---------------------------------------------------------------------------
 @user_router.callback_query(StartMenuCb.filter(F.action == "profile"))
 async def on_profile(callback: CallbackQuery, callback_data: StartMenuCb):
-    await callback.answer()
-    profile_text = f"👤 Профиль\n\nВаш ID: {callback.from_user.id}"
-    try:
-        user = await api_client.get_user(callback.from_user.id)
-    except httpx.HTTPError:
-        user = None
+    """
+    Кнопка «Профиль».
 
-    if user:
-        profile_text += f"\nСтатус: {user['status']}"
+    Сейчас:
+    - показывает только Telegram ID пользователя
+    - без обращения к backend/API
+    """
+    await callback.answer()
+
+    profile_text = (
+        "👤 Профиль\n\n"
+        f"Ваш ID: {callback.from_user.id}\n"
+        "Статус: неизвестен"
+    )
 
     await callback.message.edit_text(
         profile_text,
@@ -40,9 +50,16 @@ async def on_profile(callback: CallbackQuery, callback_data: StartMenuCb):
     )
 
 
+# ---------------------------------------------------------------------------
+# Техподдержка
+# ---------------------------------------------------------------------------
 @user_router.callback_query(StartMenuCb.filter(F.action == "support"))
 async def on_support(callback: CallbackQuery, callback_data: StartMenuCb):
+    """
+    Кнопка «Техподдержка».
+    """
     await callback.answer()
+
     await callback.message.edit_text(
         "🧑‍💻 Техподдержка\n\n"
         "Опишите проблему одним сообщением или напишите сюда:\n"
@@ -51,43 +68,83 @@ async def on_support(callback: CallbackQuery, callback_data: StartMenuCb):
     )
 
 
+# ---------------------------------------------------------------------------
+# Как пользоваться
+# ---------------------------------------------------------------------------
 @user_router.callback_query(StartMenuCb.filter(F.action == "howto"))
 async def on_howto(callback: CallbackQuery, callback_data: StartMenuCb):
+    """
+    Кнопка «Как пользоваться».
+    """
     await callback.answer()
+
     await callback.message.edit_text(
         "📖 Как пользоваться\n\n"
         "1) Нажмите «Купить» и оплатите подписку.\n"
-        "2) Получите доступ в разделе «Мой ключ».\n"
-        "3) Отсканируйте QR или вставьте ссылку в клиент.\n"
+        "2) Получите ключ доступа.\n"
+        "3) Добавьте его в VPN-клиент.\n"
         "4) Готово ✅",
         reply_markup=main_menu_keyboard()
     )
 
 
+# ---------------------------------------------------------------------------
+# Конфиг / Мой ключ
+# ---------------------------------------------------------------------------
 @user_router.callback_query(StartMenuCb.filter(F.action == "config"))
 async def on_config(callback: CallbackQuery, callback_data: StartMenuCb):
+    """
+    Кнопка «Мой ключ».
+
+    Без backend’а:
+    - просто показываем заглушку
+    """
     await callback.answer()
     await _send_config(callback.message, callback.from_user.id)
 
 
+# ---------------------------------------------------------------------------
+# /help
+# ---------------------------------------------------------------------------
 @user_router.message(Command("help"))
 async def help_message(message: Message):
+    """
+    Команда /help.
+    """
     await message.answer(
-        "Here are some commands you can use:\n"
-        "/start - Start the bot\n"
-        "/help - Show this help message"
+        "Available commands:\n"
+        "/start — start bot\n"
+        "/help — help\n"
+        "/config — show config"
     )
 
 
+# ---------------------------------------------------------------------------
+# /config
+# ---------------------------------------------------------------------------
 @user_router.message(Command("config"))
 async def config_message(message: Message):
+    """
+    Команда /config.
+    Делает то же самое, что кнопка «Мой ключ».
+    """
     await _send_config(message, message.from_user.id)
 
 
+# ---------------------------------------------------------------------------
+# /revoke (админская заглушка)
+# ---------------------------------------------------------------------------
 @user_router.message(Command("revoke"))
 async def revoke_user(message: Message):
+    """
+    Админская команда /revoke <telegram_id>.
+
+    Сейчас:
+    - только проверка прав
+    - без реального отзыва доступа
+    """
     if message.from_user.id not in ADMIN_TELEGRAM_IDS:
-        await message.answer("Недостаточно прав для отзыва доступа.")
+        await message.answer("Недостаточно прав.")
         return
 
     parts = message.text.split()
@@ -95,30 +152,32 @@ async def revoke_user(message: Message):
         await message.answer("Использование: /revoke <telegram_id>")
         return
 
-    telegram_id = int(parts[1])
-    try:
-        payload = await api_client.revoke_user(telegram_id)
-    except httpx.HTTPError:
-        await message.answer("Не удалось отозвать доступ. Проверьте API.")
-        return
+    telegram_id = parts[1]
 
     await message.answer(
-        f"Доступ для {payload['telegram_id']} отозван.",
+        f"⚠️ Доступ для пользователя {telegram_id} *условно отозван*.\n"
+        "(backend не подключён)",
+        parse_mode="Markdown"
     )
 
 
+# ---------------------------------------------------------------------------
+# Вспомогательная функция
+# ---------------------------------------------------------------------------
 async def _send_config(message: Message, telegram_id: int) -> None:
-    try:
-        payload = await api_client.get_user_config(telegram_id)
-    except httpx.HTTPError:
-        payload = None
+    """
+    Заглушка выдачи конфига.
 
-    if not payload:
-        await message.answer("Нет активной подписки. Нажмите «Купить» для доступа.")
-        return
+    Раньше здесь был:
+    - запрос в backend
+    - QR-код
+    - инструкция
 
-    qr_image = build_qr_image(payload["vless_url"])
-    await message.answer_photo(
-        qr_image,
-        caption=format_instruction(payload["vless_url"], payload.get("expires_at")),
+    Сейчас:
+    - просто текст
+    """
+    await message.answer(
+        "🔑 Ваш VPN-ключ\n\n"
+        "backend временно отключён.\n"
+        "Подключение будет доступно после оплаты.",
     )

@@ -1,61 +1,284 @@
-# **Проект: SkyLink VPN**
+# 🚀 VPN Subscription Service
 
-## **Суть в одном предложении**
+---
 
-VPN-сервис, который продается и настраивается через Telegram-бота за 2 минуты — пользователь оплачивает, получает QR-код или файл, настраивает на устройстве и меняет IP.
+### C4 — Container Diagram
 
-## **Три ключевые части**
+```mermaid
+flowchart TB
+    subgraph Client
+        TelegramBot["Telegram Bot (UI)"]
+        AdminPanel["Web Admin Panel"]
+    end
 
-### **1. Сервер (твой ноутбук 24/7)**
+    subgraph Backend
+        API["Backend API"]
+        DB[(PostgreSQL)]
+    end
 
-- Ставишь Xray — современный протокол, обходит блокировки
-- Автоматически генерирует ключи для каждого пользователя
-- Работает как прокси-туннель
+    TelegramBot --> API
+    AdminPanel --> API
+    API --> DB
+    API --> LocationA["Location Server A"]
+    API --> LocationB["Location Server B"]
+```
 
-### **2. Telegram-бот (касса и поддержка)**
+---
 
-- `/start` → видишь тарифы (299₽/мес, 499₽/мес)
-- Оплачиваешь картой/криптой
-- Мгновенно получаешь ключ и инструкции
-- Управляешь подпиской прямо в боте
+## 🔁 Main User Flow (Sequence)
 
-### **3. Клиентская часть (у пользователя)**
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant B as Telegram Bot
+    participant A as Backend API
+    participant P as Payment Provider
 
-- **iOS:** Скачать Shadowrocket → отсканировать QR-код → включить
-- **Windows:** Скачать V2RayN → импортировать файл → подключиться
-- IP меняется, трафик шифруется, белые списки обходятся
+    U->>B: Select plan & location
+    B->>A: Create payment
+    A->>P: Create invoice
+    P-->>A: Payment confirmed (webhook)
+    A->>A: Activate subscription
+    A-->>B: Access ready
+    B-->>U: Send config / key
+```
 
-## **Почему люди купят?**
+---
 
-- **Быстро:** От оплаты до работающего VPN — 2 минуты
-- **Просто:** Инструкция на 3 шага, даже для новичков
-- **Надежно:** Xray обходит любые блокировки
-- **Удобно:** Все в Telegram, не нужно сайтов и логинов
+## 🧰 Tech Stack
 
-## **Деньги**
+### Telegram Bot
 
-- **Тарифы:** 299₽ (1 устройство), 499₽ (3 устройства), 899₽ (семейный)
-- **Расходы:** только электричество (~500₽/мес)
-- **При 100 пользователях:** ~40 000₽ выручки, ~37 500₽ чистыми
+* Python 3.11+
+* aiogram 3.x
+* Async architecture
+* Inline keyboards with CallbackData
 
-## **Roadmap коротко**
+### Backend (planned)
 
-- сделать mvp бота
-  - надо сделать оплату по боту СБП/Банковские карты/Telegram Stars/Crypto
-  - надо сделать функционал что бы бот запоминал пользователя его подписку и тп
-  - реализовать функцию что бот запоминает и отключает доступ по ключу к vpn по истичению срока подписки
-  - добавить придумать чат с поддержкой или что то такое или оформить ее в виде предложки или отдельный акк для этого сделать
-  - сделать admin панель
-- создать подключение к vpn по терминалу с windows и если получится через какой то termux или scriptable сделать подключение с iphone
-  - понять как оно совершается
-  - как привязать токен к человеку и ко времени и тп
-  - смотреть как осуществить ограничение в подключении пользователей
-- сделать нормальную desktop app
-  - с хорошим интерфейсом что бы туда вставлялся токен и все работало и делать кросплатформ на мобилки дальше делать на iphone android mac linux и т
+* FastAPI
+* PostgreSQL
+* SQLAlchemy + Alembic
+* REST API
+* Webhooks
 
+### Admin Panel (planned)
 
-### как запускать бота:
+* SPA frontend
+* Backend API integration
+* Role-based access
 
-pip install -r requirements.txt #установать зависимости
+---
 
-python -m app.src.bot.main #запустить бота
+## 📂 Repository Structure
+
+```
+app/
+  bot/
+docs/
+  adr/
+backend/        # planned
+admin-panel/    # planned
+main.py
+README.md
+```
+
+---
+
+## ✅ Project Status
+
+### Implemented
+
+* Telegram bot skeleton
+* Menu system & user flows
+* Role separation (user / admin)
+* Logging and graceful shutdown
+* PRD and ADR documentation
+
+### Planned
+
+* Backend API & database
+* Subscription logic
+* Payment integration
+* Location servers
+* Admin web panel
+* Deployment & monitoring
+
+---
+
+## 🗺 Roadmap (High-Level)
+
+1. Backend API + database
+2. Bot ↔ Backend integration
+3. Payments & subscriptions
+4. Device management
+5. Location support
+6. Admin panel
+7. Infrastructure & monitoring
+
+---
+
+## 📘 Documentation
+
+Architecture decisions are documented using ADR:
+
+* ADR-001 — Backend as Source of Truth
+* ADR-002 — Subscription Model
+* ADR-003 — Device Limits (+50₽)
+* ADR-004 — Locations Architecture
+* ADR-005 — Payments Approach
+* ADR-006 — Web Admin Panel
+
+See `/docs/adr`.
+
+---
+
+## ▶️ Local Bot Run
+
+```bash
+export BOT_TOKEN=your_bot_token
+export SUPPORT_USERNAME=your_support_username
+export ADMIN_TELEGRAM_IDS=123456789
+
+python main.py
+```
+
+---
+
+## 🎯 Project Goals
+
+* Demonstrate architectural thinking
+* Show product-oriented backend design
+* Practice system decomposition
+* Create a strong portfolio project
+
+---
+
+## 📄 License
+
+Educational project. Use at your own discretion.
+
+```
+
+---
+
+# 2️⃣ backend/README.md
+
+```markdown
+# Backend API
+
+Backend service for VPN Subscription Service.  
+Acts as the **single source of truth**.
+
+---
+
+## Responsibilities
+
+- Users & profiles
+- Subscription lifecycle
+- Device management
+- Payment processing
+- Location orchestration
+- Admin operations
+
+---
+
+## Planned Stack
+
+- FastAPI
+- PostgreSQL
+- SQLAlchemy + Alembic
+- REST API
+- Webhooks
+
+---
+
+## Domain Model (High-Level)
+
+- User
+- Plan
+- Subscription
+- Device
+- Payment
+- Location
+- AccessKey
+
+---
+
+## Key Principles
+
+- Stateless API
+- Explicit state transitions
+- Backend-only business logic
+- Clients are UI only
+
+---
+
+## API Consumers
+
+- Telegram Bot
+- Web Admin Panel
+
+---
+
+## Status
+
+🚧 In active design / not implemented yet.
+```
+
+---
+
+# 3️⃣ admin-panel/README.md
+
+```markdown
+# Admin Panel
+
+Web-based administration panel for VPN Subscription Service.
+
+---
+
+## Purpose
+
+Provide operators and admins with a convenient UI to:
+
+- Manage users
+- View and modify subscriptions
+- Monitor payments
+- Control devices and access keys
+- Manage locations
+- Perform manual operations (revoke, extend)
+
+---
+
+## Planned Features (v1)
+
+- Authentication & roles
+- Dashboard (active users, subscriptions)
+- User management
+- Subscription control
+- Payment history
+- Device & access management
+- Audit log
+
+---
+
+## Planned Stack
+
+- SPA frontend (React / Vue / similar)
+- Backend API
+- Role-based access
+
+---
+
+## Design Goals
+
+- Fast access to critical actions
+- Clear system state visibility
+- Minimal operational friction
+
+---
+
+## Status
+
+🚧 Planned / not implemented yet.
+```
