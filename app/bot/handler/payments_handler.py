@@ -1,11 +1,16 @@
 from aiogram import Router, F
 from aiogram.types import CallbackQuery
 from aiogram.exceptions import TelegramBadRequest
+import httpx
 
 from app.bot.keyboard.buy_keyboard import BuyMenuCb, buy_menu_keyboard
 from app.bot.keyboard.main_menu import main_menu_keyboard, StartMenuCb
+from app.bot.services.instructions import format_instruction
+from app.bot.services.qr import build_qr_image
+from app.bot.services.xray_api import XrayAPIClient
 
 payments_router = Router()
+api_client = XrayAPIClient()
 
 
 @payments_router.callback_query(StartMenuCb.filter(F.action == "buy"))
@@ -32,18 +37,50 @@ async def on_buy(callback: CallbackQuery, callback_data: StartMenuCb):
 @payments_router.callback_query(BuyMenuCb.filter(F.action == "crypto"))
 async def pay_crypto(callback: CallbackQuery, callback_data: BuyMenuCb):
     await callback.answer()
+    user_id = callback.from_user.id
+    try:
+        payload = await api_client.provision_user(user_id)
+    except httpx.HTTPError:
+        await callback.message.edit_text(
+            "⚠️ Не удалось подтвердить оплату. Попробуйте позже.",
+            reply_markup=buy_menu_keyboard(),
+        )
+        return
+
     await callback.message.edit_text(
-        "💰 Оплата криптовалютой\n\n(тут будет инструкция/ссылка)",
+        "💰 Оплата криптовалютой подтверждена.",
         reply_markup=buy_menu_keyboard(),
+    )
+
+    qr_image = build_qr_image(payload["vless_url"])
+    await callback.message.answer_photo(
+        qr_image,
+        caption=format_instruction(payload["vless_url"], payload.get("expires_at")),
     )
 
 
 @payments_router.callback_query(BuyMenuCb.filter(F.action == "card"))
 async def pay_card(callback: CallbackQuery, callback_data: BuyMenuCb):
     await callback.answer()
+    user_id = callback.from_user.id
+    try:
+        payload = await api_client.provision_user(user_id)
+    except httpx.HTTPError:
+        await callback.message.edit_text(
+            "⚠️ Не удалось подтвердить оплату. Попробуйте позже.",
+            reply_markup=buy_menu_keyboard(),
+        )
+        return
+
     await callback.message.edit_text(
-        "💳 Оплата картой\n\n(тут будет платежная форма/инструкция)",
+        "💳 Оплата картой подтверждена.",
         reply_markup=buy_menu_keyboard(),
+    )
+
+    qr_image = build_qr_image(payload["vless_url"])
+    await callback.message.answer_photo(
+        qr_image,
+        caption=format_instruction(payload["vless_url"], payload.get("expires_at")),
     )
 
 
