@@ -95,12 +95,15 @@ async def on_howto(callback: CallbackQuery, callback_data: StartMenuCb):
 async def on_config(callback: CallbackQuery, callback_data: StartMenuCb):
     """
     Кнопка «Мой ключ».
-
-    Без backend’а:
-    - просто показываем заглушку
+    Редактирует текущее сообщение (НЕ отправляет новое).
     """
     await callback.answer()
-    await _send_config(callback.message, callback.from_user.id)
+
+    await callback.message.edit_text(
+        _config_text(callback.from_user.id),
+        reply_markup=main_menu_keyboard()
+    )
+
 
 
 # ---------------------------------------------------------------------------
@@ -128,7 +131,10 @@ async def config_message(message: Message):
     Команда /config.
     Делает то же самое, что кнопка «Мой ключ».
     """
-    await _send_config(message, message.from_user.id)
+    await message.answer(
+        _config_text(message.from_user.id),
+        reply_markup=main_menu_keyboard()
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -164,20 +170,11 @@ async def revoke_user(message: Message):
 # ---------------------------------------------------------------------------
 # Вспомогательная функция
 # ---------------------------------------------------------------------------
-async def _send_config(message: Message, telegram_id: int) -> None:
+def _config_text(telegram_id: int) -> str:
     """
-    Заглушка выдачи конфига.
-
-    Раньше здесь был:
-    - запрос в backend
-    - QR-код
-    - инструкция
-
-    Сейчас:
-    - просто текст
+    Заглушка выдачи VPN-ключа.
     """
-    await message.answer(
+    return (
         "🔑 Ваш VPN-ключ\n\n"
-        "backend временно отключён.\n"
-        "Подключение будет доступно после оплаты.",
+        "Подключение будет доступно после оплаты."
     )

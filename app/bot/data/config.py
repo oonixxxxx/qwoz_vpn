@@ -1,6 +1,6 @@
 import os
 
-BOT_TOKEN = 'your-telegram-bot-token-here'
+BOT_TOKEN = 'your-telegram-bot-token'
 
 SUPPORT_USERNAME = ["SUPPORT_USERNAME", "YourSupportUsername"]
 #XRAY_API_URL = os.getenv("XRAY_API_URL", "http://localhost:8000")
